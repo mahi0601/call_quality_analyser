@@ -1,0 +1,393 @@
+{
+  "info": {
+    "name": "OMIND.AI API Collection",
+    "description": "Complete API collection for OMIND.AI Contact Center AI Agent system",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "User Registration",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"securepassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "User Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"securepassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    const response = pm.response.json();",
+                  "    pm.environment.set('token', response.data.token);",
+                  "    pm.collectionVariables.set('token', response.data.token);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Demo Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"demo@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/demo-login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "demo-login"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    const response = pm.response.json();",
+                  "    pm.environment.set('token', response.data.token);",
+                  "    pm.collectionVariables.set('token', response.data.token);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get Current User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/me",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "me"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Smith\",\n  \"email\": \"johnsmith@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/profile",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "profile"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Call Management",
+      "item": [
+        {
+          "name": "Upload Audio File",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "audioFile",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/calls/upload",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "calls", "upload"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Calls",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/calls?page=1&limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "calls"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Call by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/calls/{{callId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "calls", "{{callId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Call Analysis",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/calls/{{callId}}/analysis",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "calls", "{{callId}}", "analysis"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Call Coaching",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/calls/{{callId}}/coaching",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "calls", "{{callId}}", "coaching"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Call Statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/calls/stats",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "calls", "stats"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Analysis Services",
+      "item": [
+        {
+          "name": "Transcribe Audio",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"callId\": \"{{callId}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/analysis/transcribe",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "analysis", "transcribe"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Analyze Transcript",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"callId\": \"{{callId}}\",\n  \"transcript\": \"Hello, this is customer service. How can I help you today?\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/analysis/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "analysis", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Generate Coaching Plan",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"callId\": \"{{callId}}\",\n  \"analysis\": {\n    \"callOpening\": 85,\n    \"issueUnderstanding\": 92,\n    \"sentimentAnalysis\": {\n      \"agent\": 88,\n      \"customer\": 75\n    },\n    \"csatScore\": 82,\n    \"resolutionQuality\": 90\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/analysis/coaching",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "analysis", "coaching"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Estimate Costs",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"audioDuration\": 180,\n  \"transcriptLength\": 500\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/analysis/cost-estimate",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "analysis", "cost-estimate"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Health Checks",
+      "item": [
+        {
+          "name": "Backend Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API Documentation",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api-docs",
+              "host": ["{{baseUrl}}"],
+              "path": ["api-docs"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

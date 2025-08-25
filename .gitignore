@@ -1,0 +1,293 @@
+# OMIND.AI Project - Git Ignore File
+
+# ===================================
+# Dependencies
+# ===================================
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ===================================
+# Environment Variables
+# ===================================
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.example
+
+# ===================================
+# Build Outputs
+# ===================================
+
+# React build output
+frontend/build/
+frontend/dist/
+
+# Backend build output
+backend/dist/
+backend/build/
+
+# ===================================
+# Runtime Data
+# ===================================
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# ===================================
+# Database
+# ===================================
+
+# MongoDB data
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# ===================================
+# File Uploads
+# ===================================
+
+# Uploaded files (keep sample files)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# ===================================
+# IDE and Editor Files
+# ===================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# WebStorm/IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ===================================
+# OS Generated Files
+# ===================================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===================================
+# Docker
+# ===================================
+
+# Docker volumes
+docker-volumes/
+docker-data/
+
+# Docker compose override files
+docker-compose.override.yml
+docker-compose.override.yaml
+
+# ===================================
+# Testing
+# ===================================
+
+# Test coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Jest
+.jest/
+
+# ===================================
+# Security
+# ===================================
+
+# API keys and secrets
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# SSL certificates
+ssl/
+certificates/
+
+# ===================================
+# Cache and Temporary Files
+# ===================================
+
+# Cache directories
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# ===================================
+# Package Managers
+# ===================================
+
+# npm
+.npm
+.npmrc
+
+# Yarn
+.yarn-integrity
+.yarnrc
+
+# ===================================
+# Monitoring and Logs
+# ===================================
+
+# PM2
+.pm2/
+
+# Logs
+logs/
+*.log
+
+# ===================================
+# Backup Files
+# ===================================
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# ===================================
+# Documentation Build
+# ===================================
+
+# Generated documentation
+docs/build/
+docs/_build/
+
+# ===================================
+# Local Development
+# ===================================
+
+# Local development files
+.local/
+local/
+
+# ===================================
+# Specific to OMIND.AI
+# ===================================
+
+# AI model files (if any)
+models/
+*.model
+*.bin
+
+# Large audio files (keep only sample files)
+backend/uploads/*.mp3
+backend/uploads/*.wav
+backend/uploads/*.m4a
+backend/uploads/*.aac
+backend/uploads/*.ogg
+!backend/uploads/sample-*.mp3
+!backend/uploads/sample-*.wav
+
+# Analysis cache
+backend/cache/
+backend/analysis-cache/
+
+# ===================================
+# Keep Important Files
+# ===================================
+
+# Keep empty directories
+!backend/uploads/.gitkeep
+!frontend/public/.gitkeep
+
+# Keep sample files
+!backend/uploads/sample-*
+!docs/samples/
+
+# Keep documentation
+!README.md
+!*.md
+!docs/*.md
