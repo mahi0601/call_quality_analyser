@@ -1,4 +1,4 @@
-# OMIND.AI - Contact Center AI Agent
+# Contact Center AI Agent
 
 A comprehensive MERN stack application for contact center call analysis and agent coaching using AI/ML components. This system provides end-to-end workflow from audio upload to personalized coaching plans.
 
