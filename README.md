@@ -6,14 +6,14 @@ A comprehensive MERN stack application for contact center call analysis and agen
 
 **Watch the complete project demonstration:**
 
-[![OMIND.AI Demo Video](https://img.shields.io/badge/Watch%20Demo-Loom%20Video-blue?style=for-the-badge&logo=loom)](https://www.loom.com/share/c2fd01d8e8d749a4b746a6ef454ede81?sid=0df97361-1708-4da2-b2f1-da53264204d4)
+[![.AI Demo Video](https://img.shields.io/badge/Watch%20Demo-Loom%20Video-blue?style=for-the-badge&logo=loom)](https://www.loom.com/share/c2fd01d8e8d749a4b746a6ef454ede81?sid=0df97361-1708-4da2-b2f1-da53264204d4)
 
 
 ## 🏗️ Architecture Diagram & System Design
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                              OMIND.AI SYSTEM ARCHITECTURE                   │
+│                              AI SYSTEM ARCHITECTURE                         │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
@@ -88,7 +88,7 @@ A comprehensive MERN stack application for contact center call analysis and agen
 ```bash
 # Clone and setup
 git clone <repository-url>
-cd omind-ai-project
+cd -ai-project
 ./setup.sh
 
 # Start services
@@ -100,7 +100,7 @@ cd frontend && npm start
 ```bash
 # Clone and setup
 git clone <repository-url>
-cd omind-ai-project
+cd -ai-project
 
 # Start with Docker
 docker-compose -f docker-compose.dev.yml up --build
@@ -350,7 +350,7 @@ npm test
 ## 📁 Project Structure
 
 ```
-omind-ai-project/
+-ai-project/
 ├── backend/
 │   ├── config/
 │   │   └── database.js          # MongoDB connection
